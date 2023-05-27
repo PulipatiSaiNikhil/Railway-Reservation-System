@@ -6,11 +6,12 @@
         include '../partials/_dbconnect.php';
         $username = $_POST["username"];
         $pswd = $_POST["pswd"];
+        $_SESSION["username"]=$username;
 
         $sql = "SELECT * from users where username='$username' AND role='1'";
         $result = mysqli_query($conn,$sql);
         $num = mysqli_num_rows($result);
-        
+
         // Checking whether admin account exists in the database
         if($num == 1)
         {

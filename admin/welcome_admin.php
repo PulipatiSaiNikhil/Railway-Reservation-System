@@ -1,6 +1,7 @@
 <?php
     // Redirecting to Login Page if not logged in
     session_start();
+    $username=$_SESSION["username"];
     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
     {
         header("location : ../index/login_admin.php");
@@ -15,7 +16,7 @@
 
     .cards {
         transition: 0.5s;
-        
+
     }
 
     body {
@@ -46,7 +47,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Welcome Admin</title>
+        <title>Welcome <?php echo $username; ?></title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
@@ -100,7 +101,7 @@
         <!-- Trains Running Cards -->
         <div class="container">
             <div class="row">
-                <?php 
+                <?php
             $day = date("D");
             $sql = "SELECT * from train";
             $res = mysqli_query($conn,$sql);

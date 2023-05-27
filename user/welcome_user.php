@@ -15,7 +15,7 @@
 
     .cards {
         transition: 0.5s;
-        
+
     }
 
     body {
@@ -66,7 +66,7 @@
         <!-- Trains Running Cards -->
         <div class="container">
             <div class="row">
-                <?php 
+                <?php
             $day = date("D");
             $sql = "SELECT * from train where FIND_IN_SET('$day',day);";
             $res = mysqli_query($conn,$sql);
